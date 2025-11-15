@@ -1,14 +1,14 @@
 {
   "name": "secure-one-tab",
   "version": "1.0.0",
-  "description": "Secure single-tab/kiosk browser (Version B)",
+  "description": "Browser for secured browsing",
   "main": "src/main/main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
     "pack": "electron-builder --dir"
   },
-  "author": "Your Name",
+  "author": "Adithiyan R",
   "license": "MIT",
   "devDependencies": {
     "electron": "^31.0.0",

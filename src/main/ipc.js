@@ -1,4 +1,3 @@
-// src/main/ipc.js
 const { ipcMain } = require("electron");
 
 let _mainWindow = null;
@@ -47,7 +46,6 @@ function init({ mainWindow, view }) {
     process.exit(0);
   });
 
-  // Admin update whitelist
   ipcMain.handle("admin-update-whitelist", async (event, newList) => {
     try {
       const fs = require("fs");

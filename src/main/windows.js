@@ -1,4 +1,3 @@
-// src/main/windows.js
 const { BrowserWindow, BrowserView } = require("electron");
 const path = require("path");
 const { attachToSession } = require("./security/webRequest");
@@ -21,14 +20,11 @@ function createMainWindow() {
 
   mainWindow.loadFile(path.join(__dirname, "../renderer/pages/index.html"));
 
-  // BrowserView for actual web browsing
   const view = new BrowserView({
     webPreferences: {
       partition: "persist:mainview",
       contextIsolation: false,
       nodeIntegration: false,
-      // webSecurity: false,
-      // allowRunningInsecureContent: true,
     },
   });
 
@@ -48,7 +44,6 @@ function createMainWindow() {
   mainWindow.on("resize", resizeView);
   mainWindow.on("ready-to-show", resizeView);
 
-  // Apply webRequest rules BEFORE loading any URL
   attachToSession(view.webContents.session);
 
   view.webContents.loadURL("about:blank");

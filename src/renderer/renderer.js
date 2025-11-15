@@ -1,4 +1,3 @@
-// src/renderer/renderer.js
 window.addEventListener("DOMContentLoaded", () => {
   const urlInput = document.getElementById("url");
   const goBtn = document.getElementById("go");
@@ -35,7 +34,6 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((r) => r.json())
       .catch(() => null);
     if (settings && pin === settings.adminPassword) {
-      // fetch whitelist and open editor
       const wl = await fetch("../../config/whitelist.json")
         .then((r) => r.json())
         .catch(() => []);

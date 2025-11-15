@@ -1,4 +1,3 @@
-// src/renderer/preload.js
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("secureAPI", {

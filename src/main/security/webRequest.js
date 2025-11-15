@@ -1,11 +1,9 @@
-// src/main/security/webRequest.js
 const fs = require("fs");
 const path = require("path");
 const { webContents } = require("electron");
 
 let currentRoot = null;
 
-// ALWAYS loads only whitelist.json (you removed blacklist.json)
 function loadWhitelist() {
   try {
     const p = path.join(__dirname, "../../../config/whitelist.json");
@@ -52,7 +50,6 @@ function attachToSession(sess) {
     const cleanHost = hostname.replace(/^www\./, "");
     const root = getRootDomain(cleanHost);
 
-    // MAIN FRAME navigation (user typed)
     if (details.resourceType === "mainFrame") {
       const allowed = whitelist.includes(root);
 
@@ -72,12 +69,10 @@ function attachToSession(sess) {
         return callback({ cancel: false });
       }
 
-      // BLOCKED → load custom page
       showBlockedPage(details, cleanHost);
       return callback({ cancel: true });
     }
 
-    // SUBRESOURCES
     if (currentRoot && root === currentRoot) {
       return callback({ cancel: false });
     }
