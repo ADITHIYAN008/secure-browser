@@ -1,5 +1,6 @@
 {
-  "name": "secure-one-tab",
+  "name": "oort-cloud",
+  "productName": "Oort Cloud",
   "version": "1.0.0",
   "description": "Browser for secured browsing",
   "main": "src/main/main.js",
@@ -15,12 +16,19 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.securebrowser.app",
+    "appId": "com.exam.securebrowser",
+    "productName": "Oort Cloud",
+    "directories": {
+      "buildResources": "build"
+    },
     "mac": {
-      "category": "public.app-category.productivity"
+      "icon": "build/icons/OortCloud.icns"
     },
     "win": {
-      "target": "nsis"
+      "icon": "build/icons/OortCloud.ico"
+    },
+    "linux": {
+      "icon": "build/icons/OortCloud.png"
     }
   }
 }
